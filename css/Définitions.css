@@ -1,0 +1,218 @@
+/*
+
+--------------------------------------HTML--------------------------------------
+h1, h2, h3, h4, h5, h6: Plus grande à la plus petite entête
+
+ol: Permet de dresser une liste avec un ordre précis
+   - Il doit toujours contenir des li pour énumérer les éléments
+   - On peut préciser si on veut énumérer avec des numéros, alphabets maj ou min, chiffres
+   romains en précisant type ="l'énumérateur"" juste après ol.
+
+ul: Permet de dresser une liste sans ordre précis (avec des points)
+
+b, i, u: gras, italique, underlined
+
+sup: exposant
+
+sub: indice
+
+strong: gras
+
+em: itallique
+
+img: Image
+   - Est toujours accompagné de 'src' pour qu'on situe le répertoire de l'image
+   - Le 'alt' est le mot qui s'affiche si l'image ne se charge pas
+   - On peut rajouter une 'class' à l'image pour définir son CSS
+   ex:
+    img class="imageCanard" src="/images/mall_jukka_jantunen.jpg" alt="Canard">
+
+fieldset: Contour de page qui peut être défini dans CSS aussi
+
+legend: Généralement mit en tant qu'enfant de 'fieldset' pour qu'un mot s'affiche
+sur le contour
+
+link: Sert à répertorier le fichier CSS ou un Google Font
+    - 'rel' définit la relation, on écrit généralement stylesheet
+    - 'href' est l'emplacement du dossier CSS ou du répertoire en question
+    ex:     <link rel="stylesheet" href="css/styles.css">
+
+
+a: Hyperlien
+    - Accompagné de 'href' pour indiquer le lien web dans lequel on veut être dirigé
+    - 'target' spécifie comment la fenêtre va réagir. Mettre '_blank' ouvre un
+    nouvel onglet.
+    ex: <a href="https://yahoo.fr" target="_blank">Yahoo!</a>
+
+div/span: Élément générique (pas de rôle précis à moins qu'il ait une classe), utilisé
+pour regrouper des éléments html ensemble.
+    -ex: <div class="coucou"></div>
+
+--------------------------------------CSS--------------------------------------
+
+Notes:
+*** Certaines propriétés CSS peuvent être héritées, c'est-à-dire qu'une propriété
+CSS héritée, appliquée à un élément HTML, sera automatiquement attribuée à ces
+enfants. Parent ----> Enfant
+*** Le principe d'héritage ne s'applique qu'à une minorité de propriétés CSS. La pluspart
+sont non-héritées (ex: background-color)
+*** On peut appliquer des styles par défaut au <body> pour affecter toute la page
+*** Une classe ne doit pas être nomée avec des caractères spéciaux ou commencer
+par un chiffre. (Ex: cactus, etreSurSite, le1erTitre)
+*** Un élément html peut contenir plus qu'une règle de style (plus qu'une classe).
+Ex: Si nous avons un hyperlien du mot 'Tangerine' et que la couleur est rouge
+grâce à la classe 'petitMot', on a pas besoin de spécifier la couleur 
+dans une autre classe qui va le définir, vu qu'elle est déjà dans la classe petitMot
+
+***GIGA IMPORTANT: Une classe qui commence par '.' est + priorisé qu'une classe qui
+définit un sélecteur par type d'élément. (classe .petitMot{} > classe h1{})
+
+width: Indique la largeur (généralement utilisé pour le contenant)
+    -Si on utilise %, c'est la largeur appliquée lorsque la largeur de la fenêtre
+    est plus petite que la largeur maximum du container.
+
+max-width: Largeur max de l'élément
+
+color: couleur du texte contenu dans l'élément
+    - Peut être nommée en couleur standard (red, blue, yellow, etc)
+    - En RGB (0,0,0) à (255,255,255)
+    - En Héxadécimal #000000 à #ffffff
+    - En RGBA (Ça inclut l'opacité)
+
+font-size: taille de la police
+    - FORTEMENT conseillé d'utiliser rem (ou em) qui se base sur la taille de police du
+    navigatteur. Ça permet de faire varier la taille du texte en fonction de la taille choisie
+    par l'utilisateur.
+    ex: 1rem = 16 px;
+        1.5rem = 24px
+        2rem = 32px;
+        etc.
+    -ON PEUT également exprimer direct en pixel comme mentionné sur ex précédent.
+
+font-family: type de police (Verdana, Calibri, Times...)
+
+line-height: hauteur de ligne de texte (interligne)
+    -Peut être exprimé en em, rem ou px.
+    - FORTEMENT conseillé de mettre une valeur sans unité (ratio), car la valeur est
+      relative à 'font-size'.
+      ex: line-height: 2;
+
+text-align: Aligner texte vers gauche, droite, justifier ou centrer.
+    - left, right, center, justify
+    - À noter que l'usage de 'justify' est déconseillé en web, depuis l'arrivé
+    de l'intégration responsive.
+
+text-transform: Sert à définir les majuscules dans un élément
+    - none (par défaut)
+    - capitalize (Premier caractère de chaque mot --> majuscule)
+    - uppercase (Tous les caractères sont en maj
+    - lowercase(Tous les caractères sont en minuscules
+
+font-weight: Si la police on la veut en gras, en italique, plus grosse, plus petite..
+    - Mesure de 100 à 900, normal (par défaut), lighter ou bold.
+
+font-style: N'a que 3 valeurs possibles --> Normal, italic ou oblique. Cette propriété
+            dicte l'inclinaison des caractères si la police le permet.
+
+text-decoration: Soulignement de texte
+    - none: par défaut (sauf pour les liens), on peut utiliser ça pour supprimer
+    la barre qui surligne un lien, cela peut être pratique***
+    - underline: souligner un élément
+    - line-through: barrer un élément
+
+background-color: Couleur d'arrière-plan d'un élément
+    - Peut être nommée en couleur standard (red, blue, yellow, etc)
+    - En RGB (0,0,0) à (255,255,255)
+    - En Héxadécimal #000000 à #ffffff
+    - En RGBA (Ça inclut l'opacité)
+
+background-image: La propriété permet d 'appliquer une image de fond à un élément
+    - Il est possible de contrôler le postionnement et les dimensions d'une image
+    de fond grâce à d'autres propriétés CSS:
+
+    background-repeat: contrôle la répétition de l'image de fond
+        - On peut choisir de faire 'repeat' ou 'no-repeat'
+        - On peut également choisir si on désire répéter seulement dans l'axe des x
+        ou l'axe des y (repeat-x / repeat-y)
+
+    background-size: contrôle la grosseur de l'image par rapport à l'élément qui
+    la contient
+        - En pixels
+        - Si on utilise background-size: Contain --> l'élément contient la totalité de L'image
+        - Si on utilise background-size: Cover --> l'image couvre la totalité de l'élément
+
+    background-position: contrôle la position de l'image par rapport à l'élément
+    qui la contient
+        - Par défaut, l'image de fond se positionne en haut à gauche de l'élment
+        sur  lequel elle est appliquée. Il est possible de modifier cette position
+        grâce à cette propriété. L'image se positionne selon les x et les y.
+            -background-position: top left (celui par défaut)
+            -background-position bottom right
+            -background-position center center
+
+    background-attachment: permet de préciser si l'image de fond est fixe ou doit
+    se déplacer selon si on défile la page ou non
+        -background-attachment:fixed
+
+border-radius: Permet d'entourer les coins d'un élément, pour pas que les coins soient
+perpendiculaires. Exprimé généralement en px.
+
+
+---------------------------------CSS ESPACEMENTS---------------------------------
+
+border: Bordure autour d'un élément
+    - Peut être défini en px, en style (solid, dashed,...) et avoir une couleur)
+    ex: border: 1px solid #000
+    - En utilisant border, on doit rajouter 3 infos: largeur-style-couleur dans
+    cet ordre.
+    -Border est une balise simplifié de border-width - border-style - border-color
+    (Voir point précédent)
+    - On peut préciser quelle bordure ne mentionnant -top ou -bottom, ou -left, ou -right
+
+margin: Marges externes d'un élément
+    - Peut être défini en px, %, em ou rem.
+    -En utilisant margin, on doit rajouter 4 infos:
+        marge du haut-marge de droite- marge du bas-marge de gauche (ex: 10px, 20px, 5px, 2px)
+    -Margin est une balise simplifiée, mais on peut spécifier une marge précise en utilisant
+    soit margin-top, margin-bottom, margin-left ou margin-right
+    -En écrivant tout court par exemple margin: 20px, 
+    cela suppose que tout le tour de l'élément est impacté
+
+padding: Espacement internes d'un élément.
+    -Peut être défini en px, %, em ou rem.
+    -En utilisant padding, on doit rajouter 4 infos:
+        padding du haut-padding de droite- padding du bas-padding de gauche (ex: 10px, 20px, 5px, 2px)
+    -padding est une balise simplifiée, mais on peut spécifier une marge précise en utilisant
+    soit padding-top, padding-bottom, padding-left ou padding-right
+    -En écrivant tout court par exemple padding: 20px, 
+    cela suppose que tout le tour de l'élément est impacté
+
+
+    ---------------------------------LES GRID---------------------------------
+
+    ***Pour donner accès aux propriétés de Grid, on doit obligatoirement appliquer
+    la propriété 'display: grid' au parent direct (grid container) des éléments
+    à positionner (grid items)
+    ***Grid tracks = rangée / colonnes défini dans grid
+    grid-template-column et grid-template-row: Permettent de définir le nombre de
+    grid tracks de la grille, ainsi que leurs dimensions respectives. Les dimensions
+    se définissent généralement avec les unités px, %, fr ou selon une dimension
+    automatique avec auto.
+
+    ex:
+    .gridContainer{
+        display: grid
+        grid-template-columns: 40px 50px auto 50px 40px;
+        grid-template-rows: 25% 100px auto;
+
+    ***L'unité 'fr' est spécifique aux grids. Elle définit une fraction de la largeur
+    de l'élément conteneur
+
+    gap: cette propriété permet de rajouter des gouttières entre les grid tracks de rangées
+    et de colonnes de la grille.
+
+    align-items /justify-items: Par défaut, les contenus des cellules occupent la pleine largeur et hauteur
+    des cellules (en stretch). Ces propriétés peuvent être utilisés pour centrer le contenu,
+        ex: align-items: stretch / center / start / end
+
+    

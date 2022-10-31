@@ -1,0 +1,57 @@
+
+.imageCanard{
+    height: 50px;
+    width:  50px;
+}
+p a {
+  color: red;
+  font-size: 20px;
+}
+
+li {
+  color: blue;
+}
+ul li {
+  color: green;
+}
+
+ol li{
+  font-size: 40px;
+  color: orange;
+}
+
+/* Prioritaire avec des virgules*/
+h1, h2, h3{
+    color: fuchsia;
+}
+
+h1 h2 {
+    color: black;
+}
+/* Ceci est un commentaire dans un code CSS héhé */
+.container{
+    width: 1000px;
+    margin: auto;
+    background-color: beige;
+}
+
+.coucou{
+    background-color:honeydew
+}
+
+
+.gridJardin{
+            display: grid;
+      grid-template-columns: 50% 30% 20%;
+        grid-template-rows: 20% 20% 20% 20% 20%;
+        font-size: 2em;
+        align-self: stretch
+
+}
+
+.cellule{
+    border-bottom: 2px solid red;
+    border-right: 2px solid green;
+    text-align: center;
+    background-color: rgba(255, 166, 0, 0.418)
+}
